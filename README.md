@@ -1,7 +1,7 @@
 ## A simple example of Go (golang) api with jwt authentication
 
 ### tech stack
-* **Go** - a programming language that is fast, uses minimal resources and support high concurrency
+* **Go** - a programming language that is fast, uses minimal resources and supports high concurrency
 * **Gorilla Mux** - minimalistic request router and dispatcher
 * **Gorilla Logging Handler** - middleware for http request/response logging
 * **jwt-go** - a jwt library for Go
