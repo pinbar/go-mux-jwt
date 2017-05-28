@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
 	"strings"
 
@@ -17,7 +16,7 @@ func authenticate(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("Please provide name and password to obtain the token"))
 		return
 	}
-	if name == "neo" && password == "keanu" {
+	if (name == "neo" && password == "keanu") || (name == "morpheus" && password == "lawrence") {
 		token, err := getToken(name)
 		if err != nil {
 			w.WriteHeader(http.StatusInternalServerError)
@@ -50,8 +49,11 @@ func authMiddleware(next http.Handler) http.Handler {
 			w.Write([]byte("Error verifying JWT token: " + err.Error()))
 			return
 		}
-		name := claims.(jwt.MapClaims)["name"]
-		fmt.Println("claims.name: ", name)
+		name := claims.(jwt.MapClaims)["name"].(string)
+		role := claims.(jwt.MapClaims)["role"].(string)
+
+		r.Header.Set("name", name)
+		r.Header.Set("role", role)
 
 		next.ServeHTTP(w, r)
 	})

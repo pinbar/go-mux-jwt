@@ -27,6 +27,7 @@ func ConfigureRouter() *mux.Router {
 	router.HandleFunc("/authenticate", authenticate)
 
 	router.Handle("/api/megacity", authMiddleware(megacityHandler))
+	router.Handle("/api/levrai", authMiddleware(levraiHandler))
 
 	return router
 }
@@ -46,4 +47,14 @@ func agentsHandler(w http.ResponseWriter, r *http.Request) {
 
 var megacityHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("Welcome to the Megacity!"))
+})
+
+var levraiHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+	name := r.Header.Get("name")
+	if name != "neo" {
+		w.WriteHeader(http.StatusUnauthorized)
+		w.Write([]byte("Only Neo can enter the Merovingian's restaurant!"))
+		return
+	}
+	w.Write([]byte("Welcome to the LeVrai!"))
 })
