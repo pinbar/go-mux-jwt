@@ -11,6 +11,7 @@ vendors/
 reports/
 coverage.out
 coverage.html
+junitFormatReport.xml
 
 # Executable
 go-mux-jwt

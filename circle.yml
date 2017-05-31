@@ -1,0 +1,12 @@
+test:
+  override:
+    - go test -cover -coverprofile=coverage.out
+    - go tool cover -html=coverage.out -o coverage.html
+  post:
+    #- npm install -g codeclimate-test-reporter
+    #- CODECLIMATE_REPO_TOKEN=$CodeClimateToken codeclimate-test-reporter < reports/coverage/lcov.info  
+    - go get -u github.com/jstemmer/go-junit-report
+    - go test -v 2>&1 | go-junit-report > JUnitReport.xml
+    - mv JUnitReport.xml $CIRCLE_TEST_REPORTS
+    - mkdir $CIRCLE_ARTIFACTS/coverage
+    - mv coverage.html $CIRCLE_ARTIFACTS/coverage
