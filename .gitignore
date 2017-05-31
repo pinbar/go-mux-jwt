@@ -4,6 +4,7 @@
 .vscode
 
 # Dependencies
+vendor/
 vendors/
 
 # Coverage Reports
