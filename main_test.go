@@ -26,6 +26,11 @@ func TestAgentName(t *testing.T) {
 	assert.Equal(t, http.StatusOK, responseStatus, "should return status OK")
 	assert.Equal(t, "My name is agent smith", string(responseBody), "wrong message")
 }
+func TestAuthenticateNoCreds(t *testing.T) {
+	responseStatus, responseBody := testHelperAuthenticate("", "", t)
+	assert.Equal(t, http.StatusBadRequest, responseStatus, "should return status 400")
+	assert.Equal(t, "Please provide name and password to obtain the token", string(responseBody), "wrong password")
+}
 func TestAuthenticateBadCreds(t *testing.T) {
 	responseStatus, responseBody := testHelperAuthenticate("neo", "lawrence", t)
 	assert.Equal(t, http.StatusUnauthorized, responseStatus, "should return status 401")

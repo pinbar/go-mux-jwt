@@ -10,6 +10,7 @@ vendors/
 # Coverage Reports
 reports/
 coverage.out
+coverage.html
 
 # Executable
 go-mux-jwt
