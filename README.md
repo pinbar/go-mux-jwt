@@ -21,7 +21,7 @@
 * clone repo or download zip
 * get the dependencies by running `dep ensure -update` in the project directory
 * in the project directory, run `go build && ./go-mux-jwt`
-* launch the browser and point to the baseurl `localhost:3001` 
+* launch the browser and point to the baseurl `localhost:3001`
     * port can be changed in `main.go`
 * *optional:*
     * use **gin** to monitor for changes and automatically restart the application
