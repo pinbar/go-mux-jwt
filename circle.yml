@@ -7,6 +7,7 @@ test:
     #- CODECLIMATE_REPO_TOKEN=$CodeClimateToken codeclimate-test-reporter < reports/coverage/lcov.info  
     - go get -u github.com/jstemmer/go-junit-report
     - go test -v 2>&1 | go-junit-report > JUnitReport.xml
-    - mv JUnitReport.xml $CIRCLE_TEST_REPORTS
+    - mkdir $CIRCLE_TEST_REPORTS/junitformat
+    - mv JUnitReport.xml $CIRCLE_TEST_REPORTS/junitformat
     - mkdir $CIRCLE_ARTIFACTS/coverage
     - mv coverage.html $CIRCLE_ARTIFACTS/coverage
