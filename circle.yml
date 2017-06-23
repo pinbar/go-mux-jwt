@@ -3,8 +3,8 @@ test:
     - go test -cover -coverprofile=coverage.out
     - go tool cover -html=coverage.out -o coverage.html
   post:
-    #- npm install -g codeclimate-test-reporter
-    #- CODECLIMATE_REPO_TOKEN=$CodeClimateToken codeclimate-test-reporter < reports/coverage/lcov.info  
+    - npm install -g codeclimate-test-reporter
+    - CODECLIMATE_REPO_TOKEN=$CodeClimateToken codeclimate-test-reporter < coverage.out
     - go get -u github.com/jstemmer/go-junit-report
     - go test -v 2>&1 | go-junit-report > JUnitReport.xml
     - mkdir $CIRCLE_TEST_REPORTS/junitformat

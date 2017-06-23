@@ -1,4 +1,6 @@
 ## A simple example of Go (golang) api with jwt authentication
+[![CircleCI](https://img.shields.io/circleci/project/pinbar/go-mux-jwt/master.svg)](https://circleci.com/gh/pinbar/go-mux-jwt)
+[![Test Coverage](https://codeclimate.com/github/pinbar/go-mux-jwt/badges/coverage.svg)](https://codeclimate.com/github/pinbar/go-mux-jwt/coverage) [![Code Climate](https://codeclimate.com/github/pinbar/go-mux-jwt/badges/gpa.svg)](https://codeclimate.com/github/pinbar/go-mux-jwt) [![Issue Count](https://codeclimate.com/github/pinbar/go-mux-jwt/badges/issue_count.svg)](https://codeclimate.com/github/pinbar/go-mux-jwt)
 
 ### tech stack
 * **Go** - a programming language that is fast, uses minimal resources and supports high concurrency
