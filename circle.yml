@@ -4,7 +4,9 @@ test:
     - go tool cover -html=coverage.out -o coverage.html
   post:
     - npm install -g codeclimate-test-reporter
-    - CODECLIMATE_REPO_TOKEN=$CodeClimateToken codeclimate-test-reporter < coverage.out
+    - go get github.com/axw/gocov/gocov
+    #- CODECLIMATE_REPO_TOKEN=$CodeClimateToken codeclimate-test-reporter < coverage.out
+    - CODECLIMATE_REPO_TOKEN=$CodeClimateToken codeclimate-test-reporter < gocov convert coverage.out | gocov annotate -
     - go get -u github.com/jstemmer/go-junit-report
     - go test -v 2>&1 | go-junit-report > JUnitReport.xml
     - mkdir $CIRCLE_TEST_REPORTS/junitformat
