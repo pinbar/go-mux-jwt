@@ -1,6 +1,7 @@
 machine:
   environment:
-    GOPATH: $HOME/.go_project
+    GOPATH: /home/ubuntu/.go_project
+    PATH: $PATH:/home/ubuntu/.go_workspace/bin
 test:
   override:
     - go test -cover -coverprofile=coverage.out
@@ -14,5 +15,5 @@ test:
     - mv JUnitReport.xml $CIRCLE_TEST_REPORTS/junitformat
     - mkdir $CIRCLE_ARTIFACTS/coverage
     - mv coverage.html $CIRCLE_ARTIFACTS/coverage
-    - echo $GOPATH
     - CODECLIMATE_REPO_TOKEN=$CodeClimateToken codeclimate-test-reporter < coverage.txt
+    - echo $GOPATH
