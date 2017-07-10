@@ -12,4 +12,5 @@ test:
     - mkdir $CIRCLE_ARTIFACTS/coverage
     - mv coverage.html $CIRCLE_ARTIFACTS/coverage
     - export GOPATH=/home/ubuntu/.go_project
+    - echo $GOPATH
     - CODECLIMATE_REPO_TOKEN=$CodeClimateToken codeclimate-test-reporter < coverage.txt
