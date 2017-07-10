@@ -11,4 +11,7 @@ test:
     - mv JUnitReport.xml $CIRCLE_TEST_REPORTS/junitformat
     - mkdir $CIRCLE_ARTIFACTS/coverage
     - mv coverage.html $CIRCLE_ARTIFACTS/coverage
-    - CODECLIMATE_REPO_TOKEN=$CodeClimateToken GOPATH=/home/ubuntu/.go_project codeclimate-test-reporter < coverage.txt
+    - go get -u github.com/axw/gocov/gocov
+    - gocov convert coverage.out
+    #- CODECLIMATE_REPO_TOKEN=$CodeClimateToken GOPATH=/home/ubuntu/.go_project codeclimate-test-reporter < coverage.txt
+    - CODECLIMATE_REPO_TOKEN=$CodeClimateToken GOPATH=/home/ubuntu/.go_project codeclimate-test-reporter < coverage.json
