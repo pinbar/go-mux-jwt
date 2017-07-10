@@ -12,6 +12,5 @@ test:
     - mkdir $CIRCLE_ARTIFACTS/coverage
     - mv coverage.html $CIRCLE_ARTIFACTS/coverage
     - go get -u github.com/axw/gocov/gocov
-    - gocov convert coverage.out
-    #- CODECLIMATE_REPO_TOKEN=$CodeClimateToken GOPATH=/home/ubuntu/.go_project codeclimate-test-reporter < coverage.txt
+    - gocov convert coverage.out >> coverage.json
     - CODECLIMATE_REPO_TOKEN=$CodeClimateToken GOPATH=/home/ubuntu/.go_project codeclimate-test-reporter < coverage.json
