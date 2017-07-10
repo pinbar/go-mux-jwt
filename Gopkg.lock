@@ -14,10 +14,10 @@
   version = "v3.0.0"
 
 [[projects]]
-  branch = "master"
   name = "github.com/gorilla/context"
   packages = ["."]
-  revision = "08b5f424b9271eedf6f9f0ce86cb9396ed337a42"
+  revision = "1ea25387ff6f684839d82767c1733ff4d4d15d0a"
+  version = "v1.1"
 
 [[projects]]
   name = "github.com/gorilla/handlers"
@@ -41,7 +41,7 @@
   branch = "master"
   name = "github.com/stretchr/testify"
   packages = ["assert"]
-  revision = "4d4bfba8f1d1027c4fdbe371823030df51419987"
+  revision = "f6abca593680b2315d2075e0f5e2a9751e3f431a"
 
 [solve-meta]
   analyzer-name = "dep"
