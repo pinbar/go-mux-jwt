@@ -13,3 +13,4 @@ test:
     - mv JUnitReport.xml $CIRCLE_TEST_REPORTS/junitformat
     - mkdir $CIRCLE_ARTIFACTS/coverage
     - mv coverage.html $CIRCLE_ARTIFACTS/coverage
+    - cd /home/ubuntu/.go_workspace:/usr/local/go_workspace:/home/ubuntu/.go_project && ls -l
